@@ -13,12 +13,15 @@ using UnityEngine;
     private NavMeshAgent _agent;
     private int _currentWaypoint;
 
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _currentWaypoint = -1;
         MoveToNextWaypoint();
+      
     }
+    
 
     private void OnEnable()
     {
@@ -39,10 +42,5 @@ using UnityEngine;
     {
         _currentWaypoint++;
         _agent.SetDestination(_waypoints[_currentWaypoint].gameObject.transform.position);
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        
     }
 }
