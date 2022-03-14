@@ -132,4 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829bfc7d0a4f51f4a97a18786c53ba7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waypoint: {fileID: 0}
+  IsAlive: 1
+  health: 100

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4472166740436125753}
   - component: {fileID: 3764087422915722560}
   - component: {fileID: 1857790385862626613}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -110,10 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReady: 1
-  CoolDown: 5
   Damage: 35
-  Point: {fileID: 0}
   Speed: 10
+  BulletLifeTime: 2
 --- !u!54 &1857790385862626613
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
  using Scriptis.Player;
  using UnityEngine;
  using UnityEngine.AI;
+ using UnityEngine.SceneManagement;
 
  [RequireComponent(typeof(NavMeshAgent))]
  [RequireComponent(typeof(Rigidbody))]
@@ -46,6 +47,10 @@ using System.Collections.Generic;
 
     private void MoveToNextWaypoint()
     {
+        if (_currentWaypoint >= _waypoints.Count)
+        {
+            SceneManager.LoadScene(0);
+        }
         PlayerMove();
         _currentWaypoint++;
         _agent.SetDestination(_waypoints[_currentWaypoint].gameObject.transform.position);

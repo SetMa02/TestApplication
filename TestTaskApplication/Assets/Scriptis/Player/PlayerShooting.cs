@@ -12,10 +12,11 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject _container;
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private int _cooldown;
+    [SerializeField] private float _bulletLifeTime;
     
     private List<Bullet> _bullets = new List<Bullet>() { };
     
-    private void Start()
+    private void Awake()
     {
         for (int i = 1; i <= _bulletCount; i++)
         {
@@ -47,12 +48,12 @@ public class PlayerShooting : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast( _mainCamera.ScreenPointToRay(Input.mousePosition), out hit))
             {
-                Shoot(hit.transform);
+                Shoot(hit.point);
             }
         }
     }
 
-    private void Shoot(Transform point)
+    private void Shoot(Vector3 point)
     {
         Bullet currentBullet = null;
         foreach (var bullet in _bullets)
@@ -65,18 +66,20 @@ public class PlayerShooting : MonoBehaviour
         }
         if (currentBullet != null)
         {
-            Vector3 shootPoint = new Vector3(point.transform.position.x, currentBullet.transform.position.y,
-                point.transform.position.z);
+            Vector3 shootPoint = new Vector3(point.x, currentBullet.transform.position.y,
+                point.z);
+            
+            
             currentBullet.transform.LookAt(shootPoint);
             currentBullet.Speed = _bulletSpeed;
-            currentBullet.Point = point;
+            currentBullet.BulletLifeTime = _bulletLifeTime;
             currentBullet.gameObject.SetActive(true);
             currentBullet.isReady = false;
         }
 
         if (currentBullet == null)
         {
-            
+            Debug.Log("Out of ammo");
         }
     }
     private void OnBulletCollision(Bullet bullet)

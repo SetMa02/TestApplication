@@ -3,18 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e199b873-6909-4d07-8791-42ded88beadd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTaskApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTaskApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Bullet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Bullet.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonStarter/Prefabs/Characters/SM_Character_Female_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonStarter/Prefabs/Characters/SM_Character_Female_01.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/waypint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/waypint.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/male player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/male player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scriptis/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptis/Enemy/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scriptis/Player/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptis/Player/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerShooting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scriptis/Waypoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptis/Waypoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +27,11 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scriptis/Enemy/EnemyController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerShooting.cs" />
       <option value="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerRotation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scriptis/Waypoint.cs" />
       <option value="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scriptis/Player/Bullet.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scriptis/Waypoint.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scriptis/Player/PlayerShooting.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="26KBXYBbqkPgel43UsGrJ9zYBNx" />
@@ -86,7 +81,7 @@
       <workItem from="1647162447170" duration="15048000" />
       <workItem from="1647195024696" duration="3697000" />
       <workItem from="1647239607073" duration="1797000" />
-      <workItem from="1647267035418" duration="10395000" />
+      <workItem from="1647267035418" duration="13316000" />
     </task>
     <servers />
   </component>
