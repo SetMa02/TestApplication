@@ -79,17 +79,20 @@ public class PlayerShooting : MonoBehaviour
             
         }
     }
-
     private void OnBulletCollision(Bullet bullet)
     {
+        Debug.Log("Bullet on cooldown");
         StartCoroutine(BulletCoolDown(bullet));
     }
 
     private IEnumerator BulletCoolDown(Bullet bullet)
     {
+        Debug.Log("Bullet on cooldown");
         bullet.transform.position = _container.transform.position;
         yield return new WaitForSeconds(_cooldown);
         bullet.isReady = true;
+        Debug.Log("coolDown is over");
+
     }
     
 }

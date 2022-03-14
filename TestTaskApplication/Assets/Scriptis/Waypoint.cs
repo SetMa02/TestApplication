@@ -8,25 +8,14 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public class Waypoint : MonoBehaviour
 {
-    public UnityAction<Transform> WaypointsReached;
+    public UnityAction WaypointsReached;
     public UnityAction TargetElemanated;
     
     [SerializeField] private List<EnemyController> _enemies;
 
-    private void OnEnable()
+    private void FixedUpdate()
     {
-        foreach (var enemie in _enemies)
-        {
-            enemie.EnemieDie += EnemieDie;
-        }
-    }
-
-    private void OnDisable()
-    {
-        foreach (var enemie in _enemies)
-        {
-            enemie.EnemieDie -= EnemieDie;
-        }
+        CheckEnemies();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -34,17 +23,26 @@ public class Waypoint : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("StartHuntPlayer");
-            WaypointsReached?.Invoke(other.transform);
+            WaypointsReached?.Invoke();
         }
     }
-
-    private void EnemieDie(EnemyController enemie)
+    
+    private void CheckEnemies()
     {
-        _enemies.Remove(enemie);
-        enemie.gameObject.SetActive(false);
-        if (_enemies.Any() == false)
+        if(_enemies.Any() == false)
         {
             TargetElemanated?.Invoke();
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            foreach (var enemie in _enemies.ToList())
+            {
+                if (enemie.IsAlive == false)
+                {
+                    _enemies.Remove(enemie);
+                }
+            }
         }
     }
 }

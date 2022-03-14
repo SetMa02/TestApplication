@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scriptis.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -8,41 +9,28 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour
 {
-    public UnityAction<EnemyController> EnemieDie;
+    public bool IsAlive = true;
     
-    [SerializeField] private Waypoint _waypoint;
-
-    private NavMeshAgent _agent;
-
-    private void Start()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-    }
-
-    private void OnEnable()
-    {
-        _waypoint.WaypointsReached += MoveToPlayer;
-    }
-
-    private void OnDisable()
-    {
-        _waypoint.WaypointsReached -= MoveToPlayer;
-    }
-
-    private void MoveToPlayer(Transform player)
-    {
-        _agent.SetDestination(player.position);
-    }
-
+    [SerializeField] private float health = 100;
+    
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Waypoint") )
+        if (other.gameObject.CompareTag("Bullet"))
         {
-            
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            TakeDamage(bullet.Damage);
         }
-        else
+    }
+
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+        Debug.Log(health);
+        if (health <= 0)
         {
-            EnemieDie.Invoke(this);
+            Debug.Log("enemie die");
+            IsAlive = false;
+            gameObject.SetActive(false);
         }
     }
 }
