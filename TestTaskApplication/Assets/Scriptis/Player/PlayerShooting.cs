@@ -13,6 +13,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private int _cooldown;
     [SerializeField] private float _bulletLifeTime;
+
+    private PlayerController _player;
     
     private List<Bullet> _bullets = new List<Bullet>() { };
     
@@ -23,6 +25,8 @@ public class PlayerShooting : MonoBehaviour
            _bullets.Add(Instantiate(_bulletPrefab, _container.transform, false));
            _bullets[i-1].gameObject.SetActive(false);
         }
+
+        _player = GetComponent<PlayerController>();
     }
 
     private void OnEnable()
@@ -45,10 +49,13 @@ public class PlayerShooting : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            if (Physics.Raycast( _mainCamera.ScreenPointToRay(Input.mousePosition), out hit))
+            if (_player.CanShoot == true)
             {
-                Shoot(hit.point);
+                RaycastHit hit;
+                if (Physics.Raycast( _mainCamera.ScreenPointToRay(Input.mousePosition), out hit))
+                {
+                    Shoot(hit.point);
+                }
             }
         }
     }
@@ -68,9 +75,9 @@ public class PlayerShooting : MonoBehaviour
         {
             Vector3 shootPoint = new Vector3(point.x, currentBullet.transform.position.y,
                 point.z);
-            
-            
-            currentBullet.transform.LookAt(shootPoint);
+
+
+            currentBullet.Point = shootPoint;
             currentBullet.Speed = _bulletSpeed;
             currentBullet.BulletLifeTime = _bulletLifeTime;
             currentBullet.gameObject.SetActive(true);
